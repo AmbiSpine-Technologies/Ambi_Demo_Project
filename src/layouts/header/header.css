@@ -1,0 +1,44 @@
+header{
+    width: 100%;
+    border-bottom: 2px solid #d0d0d0;
+    gap: 15rem;
+    position:sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+}
+.logo{
+    margin-left: 2vmax;
+}
+.search-box form{
+    width: 450px;
+    text-align: center;
+    height: 40px;
+}
+.search-box form input{
+    background-color:white;
+    padding: 0.2rem
+}
+
+.icons{
+    font-size: 1.5rem;
+}
+.left-icons nav a span{
+    color:black;
+    font-size:0.7rem;
+    font-weight: 700;
+}
+.left-icons{
+    margin-right: 2vmax;
+}
+
+.h-notification{
+    position: relative;
+}
+
+.notification-page{
+    position: absolute;
+    margin-left: -12.9rem;
+    margin-top: -0.5rem;
+    
+}

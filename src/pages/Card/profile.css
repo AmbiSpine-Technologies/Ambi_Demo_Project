@@ -1,0 +1,33 @@
+.profile-container .card{
+width: 290px;
+gap:0;
+}
+.card-headers{
+    margin-bottom: -1rem;
+}
+.card .background-imag img{
+    width:100%;
+    height: 100px;
+}
+.card .logos {
+    margin-top: -50px;
+}
+.card .logos img{ 
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+}
+.subtitle{
+    justify-content: center;
+    align-items: center;
+    h4{
+        color: rgb(51, 51, 51);
+        font-size:15px;
+        margin-left: 1rem;
+    }
+    .circle-icons{
+        font-size: 14px;
+        color: rgb(54, 133, 253);
+        margin-left: 10px;
+    }
+}
