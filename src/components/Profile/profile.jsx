@@ -67,7 +67,8 @@ const btns = [
   {id:3,title:"Shows"},
   {id:4,title:"Marketplace"},
 ]
-const Profile = () => {
+const Profile = ({scrollableContentRef}) => {
+   const title="Prefect Match"
   const [selectedCategory, setSelectedCategory] = useState("feature");
 
   return (
@@ -80,7 +81,7 @@ const Profile = () => {
             <EventsCard />
           </div>
         </div>
-        <div className="col-6 bg-white mt-4">
+        <div className="col-6 bg-white mt-4 scrollable-content" ref={scrollableContentRef}>
           <main className="profile-container">
             <div className="cover-img">
               <img src="https://i.pinimg.com/736x/07/c9/f4/07c9f488cb6381d020a8397fe112c2cc.jpg" alt="" />
@@ -177,7 +178,7 @@ const Profile = () => {
 
         <div className="col-3">
           <div className="main-left d-flex flex-column align-items-center" style={{ marginTop: "1rem" }}>
-            <MatchCard />
+            <MatchCard title={title}/>
             <Spread_news />
             <div>
               <Terms_Service />

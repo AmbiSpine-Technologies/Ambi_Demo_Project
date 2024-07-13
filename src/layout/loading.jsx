@@ -20,7 +20,7 @@ const Loading = () => {
   return (
     <div className='loading-container vh-100 d-flex justify-content-center align-items-center'>
       <div className='content-container d-flex justify-content-center align-items-center flex-column gap-2'>
-        <img src="logo_1.JPG" alt="Loading Logo" width="90" height="90" className='mb-2' />
+        <img src="logo.png" alt="Loading Logo" width="90" height="90" className='mb-2' />
         <div className="progress" role="progressbar" aria-label="Loading Progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
           <div className="progress-bar" style={{ width: '20%' }}></div>
         </div>

@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, clearErrors } from '../../../actions/userActions';
 import Banner from '../Register/Banner';
 import { BsPersonFillCheck } from "react-icons/bs";
 import { BsBuildings } from "react-icons/bs";
 import { FiTrendingUp } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
 import { BsSuitcaseLgFill } from "react-icons/bs";
-import {NavLink} from "react-router-dom"
-
+import { NavLink,useNavigate } from "react-router-dom";
 
 const UserLogin = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { error, loading, user } = useSelector((state) => state.user);
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -39,17 +44,20 @@ const UserLogin = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      // Handle form submission
-      console.log('Form data submitted:', formData);
-      // Reset form data
-      setFormData({
-        email: '',
-        password: '',
-        termsAccepted: false,
-      });
-      setErrors({});
+      dispatch(login(formData.email, formData.password));
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      // Navigate to the home page upon successful login
+      navigate('/home');
+    }
+    if (error) {
+      setErrors((prevErrors) => ({ ...prevErrors, general: error }));
+      dispatch(clearErrors());
+    }
+  }, [user, error, dispatch, navigate]);
 
   return (
     <section className='mt-4'>
@@ -93,18 +101,20 @@ const UserLogin = () => {
                 onChange={handleChange}
               />
               <label htmlFor="Checkbox" className="form-check-label text-black text-left">
-               Remeber Me
+               Remember Me
               </label>
               {errors.termsAccepted && <div className="invalid-feedback">{errors.termsAccepted}</div>}
             </div>
             <div className='mt-2'>
-                <a href="/fpassword" type='buttom' data-bs-toggle="modal" data-bs-target="#forgotPwd">Forgot Password</a>
+                <NavLink to="/fpassword" type='button' data-bs-toggle="modal" data-bs-target="#forgotPwd">
+                Forgot Password</NavLink>
             </div>
             <div className='mt-3 d-flex justify-content-center align-items-center'>
-              <button type="submit" className="SignUp btn btn-primary btn-sm w-50">
-                Sign In
+              <button type="submit" className="SignUp btn btn-primary btn-sm w-50" disabled={loading}>
+                {loading ? 'Loading...' : 'Sign In'}
               </button>
             </div>
+            {errors.general && <div className="alert alert-danger mt-2">{errors.general}</div>}
             <div className='d-flex justify-content-center align-items-center mt-4'>
               <div className='line-bar'></div>
               <span className='me-1 ms-1 text-muted'>OR</span>
@@ -115,15 +125,14 @@ const UserLogin = () => {
               <img src="gi.png" alt="" width="20" height="20" />
             </a>
             </div>
-           
           </form>
           <div className='d-flex justify-content-center align-items-center'>
-            <NavLink to="/register">Don't  have an account ? Register Here</NavLink>
+            <NavLink to="/register">Don't have an account? Register Here</NavLink>
           </div>
         </div>
       </div>
       <div className='content-container d-flex justify-content-center align-items-center flex-column p-4 mt-4 bg-white'>
-      <div className='w-75'>
+        <div className='w-75'>
           <div className='d-flex justify-content-around gap-3 align-items-center'>
             <div className='w-25'>
               <div>
@@ -131,7 +140,7 @@ const UserLogin = () => {
               </div>
               <div>
                 <p>
-                Spreads has exciting features to connect with each other and share videos, music, audios, and more.
+                  Spreads has exciting features to connect with each other and share videos, music, audios, and more.
                 </p>
               </div>
             </div>
@@ -141,7 +150,7 @@ const UserLogin = () => {
               </div>
               <div>
                 <p>
-                Explore trending charts, videos, audios, and reels.
+                  Explore trending charts, videos, audios, and reels.
                 </p>
               </div>
             </div>
@@ -151,8 +160,8 @@ const UserLogin = () => {
               </div>
               <div>
                 <p>
-                Explore thousands of learning programs, increase your knowledge, 
-                your potential with certification, and improve your skills.
+                  Explore thousands of learning programs, increase your knowledge, 
+                  your potential with certification, and improve your skills.
                 </p>
               </div>
             </div>
@@ -164,7 +173,7 @@ const UserLogin = () => {
               </div>
               <div>
                 <p>
-                Set your job alert on Spreads and grab your job opportunities.
+                  Set your job alert on Spreads and grab your job opportunities.
                 </p>
               </div>
             </div>
@@ -173,7 +182,8 @@ const UserLogin = () => {
                 <BsBuildings className='text-primary fs-3 m-1'/>
               </div>
               <div>
-                <p>Create a marketplace, stay updated with your product, and promote your brand.
+                <p>
+                  Create a marketplace, stay updated with your product, and promote your brand.
                 </p>
               </div>
             </div>
@@ -183,45 +193,44 @@ const UserLogin = () => {
               </div>
               <div>
                 <p>
-                Use Spreads Business Solutions to solve your business problems, hire with us, and find your best solutions.
+                  Use Spreads Business Solutions to solve your business problems, hire with us, and find your best solutions.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-   
 
-{/* <!-- Modal --> */}
-<div class="modal fade" id="forgotPwd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header border-0">
-        <h1 class="modal-title fs-6 text-center" id="staticBackdropLabel">Forgot Password</h1>
-        <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-       <form action="">
-       <div className='mt-4'>
-              <input
-                type="email"
-                name="email"
-                placeholder='Enter your email'
-                className={`form-control ${errors.password ? 'is-invalid' : ''}`}
-                value={formData.password}
-                onChange={handleChange}
-              />
-              {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+      {/* <!-- Modal --> */}
+      <div className="modal fade" id="forgotPwd" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header border-0">
+              <h1 className="modal-title fs-6 text-center" id="staticBackdropLabel">Forgot Password</h1>
+              <button type="button" className="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-       </form>
+            <div className="modal-body">
+              <form action="">
+                <div className='mt-4'>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder='Enter your email'
+                    className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+                </div>
+              </form>
+            </div>
+            <div className="modal-footer border-0">
+              <NavLink type="button" to='/' className="btn btn-secondary btn-sm" data-bs-dismiss="modal">Back</NavLink>
+              <button type="button" className="btn btn-primary btn-sm">Send</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-footer border-0">
-        <a type="button" href='login' class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Back</a>
-        <button type="button" class="btn btn-primary btn-sm">Send</button>
-      </div>
-    </div>
-  </div>
-</div>
     </section>
   );
 };

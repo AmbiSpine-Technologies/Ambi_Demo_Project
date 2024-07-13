@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from './Banner';
 import { BsPersonFillCheck } from "react-icons/bs";
 import { BsBuildings } from "react-icons/bs";
 import { FiTrendingUp } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
 import { BsSuitcaseLgFill } from "react-icons/bs";
-import "./Register.css"
-import {NavLink} from "react-router-dom"
+import "./Register.css";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { clearErrors, register } from '../../../actions/userActions';
 
 const UserRegister = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { error, user,loading } = useSelector((state) => state.user); 
   const [formData, setFormData] = useState({
-    firstName: '',
+    firstName: '', 
     lastName: '',
     mobile: '',
     email: '',
@@ -45,9 +50,9 @@ const UserRegister = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      // Handle form submission
-      console.log('Form data submitted:', formData);
-      // Reset form data
+      console.log('Form data before dispatch:', formData); 
+      dispatch(register(formData));
+       //Reset form data
       setFormData({
         firstName: '',
         lastName: '',
@@ -59,6 +64,17 @@ const UserRegister = () => {
       setErrors({});
     }
   };
+  useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
+    if (error) {
+      setErrors((prevErrors) => ({ ...prevErrors, general: error }));
+      dispatch(clearErrors());
+    }
+  }, [user, error, dispatch, navigate]);
+
+
 
   return (
     <section className='mt-4'>
@@ -141,27 +157,29 @@ const UserRegister = () => {
             </div>
             <div className='mt-3 d-flex justify-content-center align-items-center'>
               <button type="submit" className="SignUp btn btn-primary btn-sm w-50">
-                Register
+              {loading ? 'Loading...' : 'Register'}
               </button>
+              
             </div>
+            {errors.general && <div className="alert alert-danger mt-2">{errors.general}</div>}
             <div className='d-flex justify-content-center align-items-center mt-4'>
               <div className='line-bar'></div>
               <span className='me-1 ms-1 text-muted'>OR</span>
               <div className='line-bar'></div>
             </div>
             <div className='d-flex justify-content-center align-items-center'>
-            <a href="www.google.com">
-              <img src="gi.png" alt="" width="20" height="20" />
-            </a>
+              <a href="www.google.com">
+                <img src="gi.png" alt="" width="20" height="20" />
+              </a>
             </div>
           </form>
           <div className='d-flex justify-content-center align-items-center '>
-            <NavLink to="/login">Already have an account? Sign In</NavLink>
+            <NavLink to="/">Already have an account? Sign In</NavLink>
           </div>
         </div>
       </div>
       <div className='content-container d-flex justify-content-center align-items-center flex-column p-4 mt-4 bg-white'>
-      <div className='w-75'>
+        <div className='w-75'>
           <div className='d-flex justify-content-around gap-3 align-items-center'>
             <div className='w-25'>
               <div>
@@ -169,7 +187,7 @@ const UserRegister = () => {
               </div>
               <div>
                 <p>
-                Spreads has exciting features to connect with each other and share videos, music, audios, and more.
+                  Spreads has exciting features to connect with each other and share videos, music, audios, and more.
                 </p>
               </div>
             </div>
@@ -179,7 +197,7 @@ const UserRegister = () => {
               </div>
               <div>
                 <p>
-                Explore trending charts, videos, audios, and reels.
+                  Explore trending charts, videos, audios, and reels.
                 </p>
               </div>
             </div>
@@ -189,8 +207,8 @@ const UserRegister = () => {
               </div>
               <div>
                 <p>
-                Explore thousands of learning programs, increase your knowledge, 
-                your potential with certification, and improve your skills.
+                  Explore thousands of learning programs, increase your knowledge, 
+                  your potential with certification, and improve your skills.
                 </p>
               </div>
             </div>
@@ -202,7 +220,7 @@ const UserRegister = () => {
               </div>
               <div>
                 <p>
-                Set your job alert on Spreads and grab your job opportunities.
+                  Set your job alert on Spreads and grab your job opportunities.
                 </p>
               </div>
             </div>
@@ -211,7 +229,8 @@ const UserRegister = () => {
                 <BsBuildings className='text-primary fs-3 m-1'/>
               </div>
               <div>
-                <p>Create a marketplace, stay updated with your product, and promote your brand.
+                <p>
+                  Create a marketplace, stay updated with your product, and promote your brand.
                 </p>
               </div>
             </div>
@@ -221,7 +240,7 @@ const UserRegister = () => {
               </div>
               <div>
                 <p>
-                Use Spreads Business Solutions to solve your business problems, hire with us, and find your best solutions.
+                  Use Spreads Business Solutions to solve your business problems, hire with us, and find your best solutions.
                 </p>
               </div>
             </div>

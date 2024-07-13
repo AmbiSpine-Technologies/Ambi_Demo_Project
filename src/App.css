@@ -1,4 +1,6 @@
-
+h3,h2,h4,h5{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
   a{
     text-decoration: none;
     color: rgb(70, 155, 189);
@@ -26,13 +28,39 @@
     height: 100%;
     align-items:stretch;
     flex-direction: column;
-    top: -5rem;
+    top: -2.5rem;
     justify-content: flex-start;
     animation: var(--transition);
     z-index:1000;
     padding-top: 20px;
     margin-top: 5rem;
+    margin-left: 2rem;
   }
   .show{
    left: 1px;
   }
+
+  .scrollable-content {
+    overflow-y: auto;
+    transition: height 0.1s ease; 
+  }
+  
+  
+  /* Optional: Hide scrollbar */
+  .scrollable-content::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  .scrollable-content {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+  }
+  
+  .scrollable-content::-webkit-scrollbar {
+    display: none; 
+  }
+  
+  
+  
+  
+  

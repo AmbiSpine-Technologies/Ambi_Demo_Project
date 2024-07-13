@@ -1,0 +1,32 @@
+.Communitysidebar {
+    background-color: white;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(104, 103, 103, 0.1);
+  }
+  
+  .Communitysidebar .list-group-item {
+    border: none;
+    color: black;
+    padding: 0.7rem 1.3rem;
+    display: flex;
+    font-weight:600;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  .Communitysidebar .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .Communitysidebar .fa-icon {
+    background-color: #007bff; 
+    color: white;
+    border-radius: 50%;
+    padding: 0.3rem;
+    margin-right: 0.75rem;
+    font-size: 0.8rem;
+  }
+  

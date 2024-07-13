@@ -13,7 +13,7 @@ const btns = [
   { id: 5, title: "Videos" },
 ];
 
-const ExploreComponent = () => {
+const ExploreComponent = ({scrollableContentRef}) => {
   return (
     <Fragment>
       <div className="container-fluid bg-light">
@@ -24,7 +24,7 @@ const ExploreComponent = () => {
             <Main_Right />
           </div>
 
-          <div className="col-6 bg-white">
+          <div className="col-6 bg-white scrollable-content" ref={scrollableContentRef}>
             <div className='mt-3'>
               <form className="p-2 w-100 justify-content-between align-items-center border border-1 d-flex" style={{ background: "rgb(196, 236, 222)" }}>
                 <input

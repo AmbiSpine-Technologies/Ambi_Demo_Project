@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css'; // Ensure this import is present
 
 function ColonCard() {
+  
   return (
     <Fragment>
       <div className='card p-3' style={{width:"250px"}}>
