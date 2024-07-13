@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { IoIosShareAlt } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
 import { VscVerifiedFilled } from "react-icons/vsc";
-import Carousel from "../../layout/carosuel/carousel";
+import Carousel from "../carosuel/carousel";
 import ChartComponent from "../../layout/chartcomponent";
 import TextCard from "../../pages/Card/TextCard";
 import EventsCard from "../../pages/Card/Events-Card";
@@ -13,6 +13,8 @@ import NetworkCard from "../../pages/Card/Network-Card";
 import MatchCard from "../../pages/Card/matchCard";
 import Terms_Service from "../../pages/Card/Terms_Service/Terms_Service";
 import ActivitySection from "./ActiveSection";
+import { NavLink } from "react-router-dom";
+import Edit_Profile from "./Edit_Profile";
 
 const featuredPosts = [
   {
@@ -62,14 +64,55 @@ const featuredPosts = [
 ];
 
 const btns = [
-  {id:1,title:"Post"},
-  {id:2,title:"Repost"},
-  {id:3,title:"Shows"},
-  {id:4,title:"Marketplace"},
-]
-const Profile = ({scrollableContentRef}) => {
-   const title="Prefect Match"
+  { id: 1, title: "Post" },
+  { id: 2, title: "Repost" },
+  { id: 3, title: "Shows" },
+];
+
+export const initialProfiles = [
+  {
+    id: 1,
+    name: "Adity Shrivastava",
+    username: "srivastava",
+    title: "Entrepreneur",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam omnis amet, distinctio possimus modi rem suscipit sit dignissimos cupiditate nisi.",
+    image: "https://live.staticflickr.com/65535/49627006528_4eabfb3cdd_z.jpg",
+    isFollowing: false,
+  },
+  {
+    id: 2,
+    name: "Rupendra Vishwakarma",
+    username: "rupendra_353",
+    title: "Entrepreneur",
+    description: "i am a normal personal ",
+    image: "deposit.jpg",
+    isFollowing: false,
+  },
+  {
+    id: 3,
+    name: "Akash panday",
+    username: "akssh_34",
+    title: "Entrepreneur",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    image: "https://live.staticflickr.com/65535/49627006528_4eabfb3cdd_z.jpg",
+    isFollowing: false,
+  }
+  // ... other profiles
+];
+
+const Profile = ({ scrollableContentRef }) => {
+  const title = "Prefect Match";
   const [selectedCategory, setSelectedCategory] = useState("feature");
+  const [profiles, setProfiles] = useState(initialProfiles);
+  const [followersCount, setFollowersCount] = useState(1000);
+  const [followingCount, setFollowingCount] = useState(30);
+
+  const handleFollowToggle  = (profileId, isFollowing) => {
+    setProfiles(profiles.map(profile => 
+      profile.id === profileId ? { ...profile, isFollowing } : profile
+    ));
+    setFollowersCount(followersCount + (isFollowing ? 1 : -1));
+  };
 
   return (
     <div className="container-fluid bg-light">
@@ -78,7 +121,6 @@ const Profile = ({scrollableContentRef}) => {
           <div className="main-left d-flex flex-column align-items-center" style={{ marginTop: "1rem" }}>
             <TextCard />
             <NetworkCard />
-            <EventsCard />
           </div>
         </div>
         <div className="col-6 bg-white mt-4 scrollable-content" ref={scrollableContentRef}>
@@ -88,47 +130,58 @@ const Profile = ({scrollableContentRef}) => {
               <span className="bi bi-bi-gear-fill"></span>
             </div>
             <div className="row">
-             <div className="col-3">
-             <div className="avatar-box">
-                <div className="avatar">
-                  <img src="https://live.staticflickr.com/65535/49627006528_4eabfb3cdd_z.jpg" alt="" />
-                  <FaPlus className="plus-icons fs-4 pb-1" />
-                </div>
-                <div className="d-flex justify-content-center flex-column align-items-center ms-2">
-                  <div className="d-flex justify-content-between gap-1 w-100">
-                    <h4 className="fs-6 fw-light">Aditya Srivastava</h4>
-                    <VscVerifiedFilled className="fs-6 mt-1 text-primary" />
+              <div className="col-3">
+                <div className="avatar-box">
+                  <div className="avatar">
+                    <img src="https://live.staticflickr.com/65535/49627006528_4eabfb3cdd_z.jpg" alt="" />
+                    <FaPlus className="plus-icons fs-4 pb-1" />
                   </div>
-                  <span className="bg-light border border-0 p-0  text-center w-100"   style={{ fontSize: "0.8rem" }}>
-                    @aditya/srivastava
-                  </span>
-                  <span className="bg-light mt-2 w-100 mt-1   text-center"   style={{ fontSize: "0.8rem" }}>
-                    Entreprenure
-                  </span>
-                  <div className="d-flex mt-3">
-                    <span className="fw-bold text-center text-secondary"
-                     style={{ fontSize: "0.8rem" }}>100k <br />Follower</span>
-                    <span className="fw-bold   text-secondary  text-center ms-3" 
-                    style={{ fontSize: "0.8rem" }}> 30 <br />Following</span>
+                  <div className="d-flex justify-content-center flex-column align-items-center ms-2">
+                    <div className="d-flex justify-content-between gap-1 w-100">
+                      <h4 className="fs-6 fw-light">Aditya Srivastava</h4>
+                      <VscVerifiedFilled className="fs-6 mt-1 text-primary" />
+                    </div>
+                    <span className="bg-light border border-0 p-0 text-center w-100" style={{ fontSize: "0.8rem" }}>
+                      @aditya/srivastava
+                    </span>
+                    <span className="bg-light mt-2 w-100 mt-1 text-center" style={{ fontSize: "0.8rem" }}>
+                      Entrepreneur
+                    </span>
+                    <div className="d-flex mt-3">
+                      <NavLink to="/followers" className="text-decoration-none ">
+                      <span className="fw-bold  text-center text-secondary" style={{ fontSize: "0.8rem" }}>
+                        {followersCount} <br /> Followers
+                      </span>
+                      </NavLink >
+                      <NavLink to="/following" className="text-decoration-none ms-3" >
+                      <span className="fw-bold text-secondary text-center ms-3" style={{ fontSize: "0.8rem" }}>
+                        {followingCount} <br /> Following
+                      </span>
+                      </NavLink>
+                    </div>
                   </div>
                 </div>
               </div>
-             </div>
               <div className="col-9">
-              <div className="profile-content ms-3">
-                <p className="fw-semibold">
-                  Where can we find the courage to act in spite of fear? Trying to eliminate that which we react to
-                  fearfully is a fool’s
-                  errand because it locates the source of our fear outside ourselves, rather than within our own hearts.
-                </p>
-               <div className="d-flex flex-row-reverse">
-               <div className="profile-btn float-end">
-                  <button className="btns">Info</button>
-                  <button className="btns">Edit Profile</button>
-                  <button className="btns">Share Profile <IoIosShareAlt /></button>
+                <div className="profile-content ms-3 mt-2">
+                  <p className="fw-semibold">
+                    Where can we find the courage to act in spite of fear? Trying to eliminate that which we react to
+                    fearfully is a fool’s
+                    errand because it locates the source of our fear outside ourselves, rather than within our own hearts.
+                  </p>
+                  <div className="d-flex flex-row-reverse">
+                    <div className="profile-btn float-end">
+                      <button className="btn btn-primary-outline">Info</button>
+                      <button className="btn btn-secondary-outline"
+                       type="button"  data-bs-toggle="modal" data-bs-target="#profileModal"
+                      >Edit Profile</button>
+                      {/* ---model---- */}
+            <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <Edit_Profile/>
+            </div>
+                    </div>
+                  </div>
                 </div>
-               </div>
-              </div>
               </div>
             </div>
           </main>
@@ -141,7 +194,7 @@ const Profile = ({scrollableContentRef}) => {
                   <ul>
                     <li>Average views</li>
                     <li>Average Likes</li>
-                    <li>Recenttly Visits</li>
+                    <li>Recently Visits</li>
                     <li>Earth Appearances</li>
                     <li>Total time Expand</li>
                   </ul>
@@ -158,27 +211,24 @@ const Profile = ({scrollableContentRef}) => {
           <hr />
           <div className="feature d-flex justify-content-left flex-column text-align-left text-left">
             <div className="ms-2">
-              <select 
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}>
+              <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
                 <option value="all" selected>All</option>
                 <option value="feature">Featured-Post</option>
                 <option value="nature">Nature</option>
                 <option value="science">Science</option>
               </select>
             </div>
-            <div className="mt-2 d-flex justify-content-center align-items-center">
+            <div className="mt-2 d-flex ms-3 align-items-center">
               <Carousel posts={featuredPosts} category={selectedCategory} />
             </div>
           </div>
-          <div className="">
-            < ActivitySection activities={featuredPosts}/>
+          <div className="mt-3">
+            <ActivitySection activities={featuredPosts} />
           </div>
         </div>
-
         <div className="col-3">
           <div className="main-left d-flex flex-column align-items-center" style={{ marginTop: "1rem" }}>
-            <MatchCard title={title}/>
+            <MatchCard title={title} profiles={profiles} onFollowToggle={handleFollowToggle} />
             <Spread_news />
             <div>
               <Terms_Service />
@@ -188,6 +238,7 @@ const Profile = ({scrollableContentRef}) => {
       </div>
     </div>
   );
-}
+};
 
 export default Profile;
+

@@ -1,0 +1,29 @@
+.layout-containers {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 3fr 9fr;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-box {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  height: 100vh;
+}
+
+.message-box {
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  height: 100vh;
+}
+
+#natworkModal .modal-content {
+  background-color: rgb(250, 248, 248);
+}

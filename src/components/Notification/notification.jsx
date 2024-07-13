@@ -31,6 +31,7 @@ const data = [
     },
 ];
 
+
 const NotificationCard = ({ name, content, image }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -38,7 +39,7 @@ const NotificationCard = ({ name, content, image }) => {
         setIsExpanded(!isExpanded);
     };
 
-    const truncatedContent = content.length > 50 ? content.substring(0, 50) + '...' : content;
+    const truncatedContent = content.length > 50 ? content.substring(0, 50) + '.....' : content;
     return (
         <div className='notification-card mt-2'>
             <img src={image} alt={name} />

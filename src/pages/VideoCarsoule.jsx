@@ -1,5 +1,6 @@
 import React from 'react'
 import './VideoCard.css'; 
+
 const Videos=()=>{
     return(
        <div className='videos-card'>
@@ -26,25 +27,25 @@ const  VideoCarsoule=()=>{
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div className='d-flex gap-2'>
-        <Videos/>
-        <Videos/>
-        <Videos/>
+        <Videos  />
+        <Videos />
+        <Videos />
        
       </div>
     </div>
     <div class="carousel-item">
     <div className='d-flex gap-2'>
-        <Videos/>
-        <Videos/>
-        <Videos/>
+        <Videos  />
+        <Videos />
+        <Videos />
         
       </div>
     </div>
     <div class="carousel-item">
     <div className='d-flex gap-2'>
-        <Videos/>
-        <Videos/>
-        <Videos/>
+        <Videos  />
+        <Videos />
+        <Videos />
        
       </div>
     </div>

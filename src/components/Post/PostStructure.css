@@ -1,0 +1,31 @@
+
+.PostDiv{ 
+   margin-top: 5px;
+   height: 90vh;
+   overflow-y: auto;
+   scrollbar-width: none;
+   .row>*{
+    padding-right: 2px;
+   }
+}
+ .div1 {     
+   height: 40vh;
+   border: 2px solid black;
+ }
+ 
+ .div2 {
+   width: 100%;
+   height: 80vh; /* Subtract height of div1 from viewport height */
+   border: 2px solid black;
+ }
+ 
+ .div3 {
+   position: absolute;
+   top: 40vh; /* Position div3 below div1 */
+   width: 48%;
+   height: 40vh;    
+   margin-top: 3px;
+   padding-right: 15px;
+ }
+ 
+

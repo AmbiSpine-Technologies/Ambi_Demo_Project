@@ -157,6 +157,10 @@ ul li span{
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-  
+.Story-container{
+    
+    top: 130px;
+    left: 27%;
+    z-index: 10;
+}
   

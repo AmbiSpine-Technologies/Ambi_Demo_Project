@@ -46,9 +46,9 @@ input::placeholder{
     font-size: 1.5rem;
 }
 .left-icons nav a span{
-    color:black;
+    color:rgb(7, 6, 6);
     font-size:0.7rem;
-    font-weight: 700;
+    font-weight: 500;
 }
 .left-icons{
     margin-right: 2vmax;
@@ -66,8 +66,8 @@ input::placeholder{
 
 .notification-page{
     position: absolute;
-    margin-left: -0.9rem;
-    margin-top: -0.7rem;
+    margin-left: -7rem;
+    margin-top: -0.1rem;
     
 }
 
@@ -75,4 +75,5 @@ input::placeholder{
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    
   }

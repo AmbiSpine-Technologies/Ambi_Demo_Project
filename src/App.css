@@ -21,24 +21,31 @@ h3,h2,h4,h5{
     flex-direction:column;
   }
   
-  .tab-group{
-    position: absolute;
-    left: -100%;
-    min-height: 100vh;
-    height: 100%;
-    align-items:stretch;
-    flex-direction: column;
-    top: -2.5rem;
-    justify-content: flex-start;
-    animation: var(--transition);
-    z-index:1000;
-    padding-top: 20px;
-    margin-top: 5rem;
-    margin-left: 2rem;
-  }
-  .show{
-   left: 1px;
-  }
+  /* tab-group class styles */
+.tab-group {
+  position: fixed; 
+  left: -450px; 
+  top: 0; 
+  min-height: 100vh;
+  height: 100%; 
+  width: 300px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  padding-top: 20px;
+  margin-left: 2rem; 
+  transition: left 0.3s ease; 
+  z-index: 1000; 
+  background: #f8f9fa; 
+}
+
+/* Show class styles */
+.tab-group.show {
+  left: 0; 
+}
+
+
+
 
   .scrollable-content {
     overflow-y: auto;

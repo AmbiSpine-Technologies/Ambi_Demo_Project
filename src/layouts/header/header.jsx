@@ -56,7 +56,7 @@ const Header = ({ toggleOpen }) => {
                         <NavLink to="/connected"
                         className="d-flex justify-content-center text-decoration-none text-center flex-column align-items-center">
                             <BsPersonCheckFill className="fs-3"/>
-                            <span className="text-secondary  w-100">Spreads connecte</span></NavLink>
+                            <span className="text-secondary  w-100 ">Spreads connecte</span></NavLink>
                 </div>
                     <div className=" h-notification" onClick={handleNotification}>
                         <NavLink to="#" 
@@ -75,12 +75,12 @@ const Header = ({ toggleOpen }) => {
                             <BsSuitcaseLgFill className="fs-3"/>
                             <span  className="text-secondary">Jobs</span></NavLink>
                     </div>
-                    <div className="">
+                    {/* <div className="">
                         <NavLink to="/show" 
                         className="d-flex justify-content-center text-decoration-none text-center flex-column align-items-center "> 
                              <img src="video_1.png" alt="" className="ms-3" style={{width:"30px",height:"30px",marginTop:"-5px"}} />
                             <span  className="text-black fs-6 fw-bold">Show</span></NavLink>
-                    </div>
+                    </div> */}
                 </nav>
             </div>
         </header>

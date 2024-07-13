@@ -1,6 +1,6 @@
 .match-card{
  display: flex;
- justify-content: center;
+ justify-content: start;
     .avatar img{
         border-radius: 50%;
         width: 45px;

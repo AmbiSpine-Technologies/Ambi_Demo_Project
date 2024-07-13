@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import Banner from './Banner';
-import { BsPersonFillCheck } from "react-icons/bs";
-import { BsBuildings } from "react-icons/bs";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, NavLink } from "react-router-dom";
+import { BsPersonFillCheck, BsBuildings, BsSuitcaseLgFill } from "react-icons/bs";
 import { FiTrendingUp } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
-import { BsSuitcaseLgFill } from "react-icons/bs";
-import "./Register.css";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
 import { clearErrors, register } from '../../../actions/userActions';
+import Banner from './Banner';
+import "../Login/login.css";
 
 const UserRegister = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { error, user,loading } = useSelector((state) => state.user); 
+  const { error, user, loading } = useSelector((state) => state.user);
+
   const [formData, setFormData] = useState({
-    firstName: '', 
+    firstName: '',
     lastName: '',
     mobile: '',
     email: '',
@@ -34,7 +33,7 @@ const UserRegister = () => {
   };
 
   const validate = () => {
-    let newErrors = {};
+    const newErrors = {};
     if (!formData.firstName) newErrors.firstName = 'First name is required';
     if (!formData.lastName) newErrors.lastName = 'Last name is required';
     if (!formData.mobile) newErrors.mobile = 'Mobile number is required';
@@ -50,9 +49,9 @@ const UserRegister = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      console.log('Form data before dispatch:', formData); 
+      console.log('Form data before dispatch:', formData);
       dispatch(register(formData));
-       //Reset form data
+      // Reset form data
       setFormData({
         firstName: '',
         lastName: '',
@@ -64,6 +63,7 @@ const UserRegister = () => {
       setErrors({});
     }
   };
+
   useEffect(() => {
     if (user) {
       navigate('/');
@@ -74,10 +74,8 @@ const UserRegister = () => {
     }
   }, [user, error, dispatch, navigate]);
 
-
-
   return (
-    <section className='mt-4'>
+    <section className='mt-0'>
       <div className='d-flex justify-content-center align-items-center flex-column' id='banner-container'>
         <Banner />
         <div className='form-container'>
@@ -157,9 +155,8 @@ const UserRegister = () => {
             </div>
             <div className='mt-3 d-flex justify-content-center align-items-center'>
               <button type="submit" className="SignUp btn btn-primary btn-sm w-50">
-              {loading ? 'Loading...' : 'Register'}
+                {loading ? 'Loading...' : 'Register'}
               </button>
-              
             </div>
             {errors.general && <div className="alert alert-danger mt-2">{errors.general}</div>}
             <div className='d-flex justify-content-center align-items-center mt-4'>
@@ -173,82 +170,34 @@ const UserRegister = () => {
               </a>
             </div>
           </form>
-          <div className='d-flex justify-content-center align-items-center '>
-            <NavLink to="/">Already have an account? Sign In</NavLink>
+          <div className='d-flex justify-content-center align-items-center'>
+            <NavLink to="/login">Already have an account? Sign In</NavLink>
           </div>
         </div>
       </div>
       <div className='content-container d-flex justify-content-center align-items-center flex-column p-4 mt-4 bg-white'>
         <div className='w-75'>
           <div className='d-flex justify-content-around gap-3 align-items-center'>
-            <div className='w-25'>
-              <div>
-                <BsPersonFillCheck className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Spreads has exciting features to connect with each other and share videos, music, audios, and more.
-                </p>
-              </div>
-            </div>
-            <div className='w-25'>
-              <div>
-                <FiTrendingUp className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Explore trending charts, videos, audios, and reels.
-                </p>
-              </div>
-            </div>
-            <div className='w-25'>
-              <div>
-                <TbBulb className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Explore thousands of learning programs, increase your knowledge, 
-                  your potential with certification, and improve your skills.
-                </p>
-              </div>
-            </div>
+            <Feature icon={<BsPersonFillCheck />} text="Spreads has exciting features to connect with each other and share videos, music, audios, and more." />
+            <Feature icon={<FiTrendingUp />} text="Explore trending charts, videos, audios, and reels." />
+            <Feature icon={<TbBulb />} text="Explore thousands of learning programs, increase your knowledge, your potential with certification, and improve your skills." />
           </div>
           <div className='d-flex justify-content-around gap-3 p-4 align-items-center'>
-            <div className='w-25'>
-              <div>
-                <BsSuitcaseLgFill className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Set your job alert on Spreads and grab your job opportunities.
-                </p>
-              </div>
-            </div>
-            <div className='w-25'>
-              <div>
-                <BsBuildings className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Create a marketplace, stay updated with your product, and promote your brand.
-                </p>
-              </div>
-            </div>
-            <div className='w-25'>
-              <div className='text-primary fs-3 fw-bold m-1'>
-                <h3>BS</h3>
-              </div>
-              <div>
-                <p>
-                  Use Spreads Business Solutions to solve your business problems, hire with us, and find your best solutions.
-                </p>
-              </div>
-            </div>
+            <Feature icon={<BsSuitcaseLgFill />} text="Set your job alert on Spreads and grab your job opportunities." />
+            <Feature icon={<BsBuildings />} text="Create a marketplace, stay updated with your product, and promote your brand." />
+            <Feature icon={<div className='text-primary fs-3 fw-bold m-1'><h3>BS</h3></div>} text="Use Spreads Business Solutions to solve your business problems, hire with us, and find your best solutions." />
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+const Feature = ({ icon, text }) => (
+  <div className='w-25'>
+    <div className='text-center text-primary fs-3 m-1'>{icon}</div>
+    <div><p>{text}</p></div>
+  </div>
+);
 
 export default UserRegister;

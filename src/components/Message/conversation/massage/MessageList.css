@@ -1,0 +1,31 @@
+.chat-component {
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+  scrollbar-width: thin;
+}
+
+.chat-component::-webkit-scrollbar {
+  width: 4px; 
+}
+
+.chat-component::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.chat-component::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.chat-component main {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+#chat-message-list {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 20px;
+}

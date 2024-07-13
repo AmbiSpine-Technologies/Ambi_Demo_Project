@@ -1,5 +1,5 @@
 /* chatBox.css */
-.chat-containers {
+.chat-containers-me {
     display: flex;
     height: 100vh;
     width: 100%;
@@ -14,17 +14,18 @@
   .chat-box {
     display: flex;
     flex-direction: column;
-    width: 400px;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-     
+        
   }
   
-  .messages {
-    flex-grow: 1;
-    position: relative;
-    padding: 10px;
+  .chat-containers-me .messages {
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
+    background-color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
   
-  
+  #natworkModal .modal-content{
+   background-color: rgb(250, 248, 248);
+  }

@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, clearErrors } from '../../../actions/userActions';
 import Banner from '../Register/Banner';
-import { BsPersonFillCheck } from "react-icons/bs";
-import { BsBuildings } from "react-icons/bs";
+import { BsPersonFillCheck, BsBuildings, BsSuitcaseLgFill } from "react-icons/bs";
 import { FiTrendingUp } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
-import { BsSuitcaseLgFill } from "react-icons/bs";
-import { NavLink,useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import "./login.css"
 
 const UserLogin = () => {
   const dispatch = useDispatch();
@@ -31,7 +30,7 @@ const UserLogin = () => {
   };
 
   const validate = () => {
-    let newErrors = {};
+    const newErrors = {};
     if (!formData.email) newErrors.email = 'Email is required';
     if (!formData.password) newErrors.password = 'Password is required';
     if (!formData.termsAccepted) newErrors.termsAccepted = 'You must accept the terms and conditions';
@@ -50,8 +49,7 @@ const UserLogin = () => {
 
   useEffect(() => {
     if (user) {
-      // Navigate to the home page upon successful login
-      navigate('/home');
+      navigate('/');
     }
     if (error) {
       setErrors((prevErrors) => ({ ...prevErrors, general: error }));
@@ -60,7 +58,7 @@ const UserLogin = () => {
   }, [user, error, dispatch, navigate]);
 
   return (
-    <section className='mt-4'>
+    <section className='mt-0'>
       <div className='d-flex justify-content-center align-items-center flex-column' id='banner-container'>
         <Banner />
         <div className='form-container'>
@@ -134,74 +132,19 @@ const UserLogin = () => {
       <div className='content-container d-flex justify-content-center align-items-center flex-column p-4 mt-4 bg-white'>
         <div className='w-75'>
           <div className='d-flex justify-content-around gap-3 align-items-center'>
-            <div className='w-25'>
-              <div>
-                <BsPersonFillCheck className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Spreads has exciting features to connect with each other and share videos, music, audios, and more.
-                </p>
-              </div>
-            </div>
-            <div className='w-25'>
-              <div>
-                <FiTrendingUp className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Explore trending charts, videos, audios, and reels.
-                </p>
-              </div>
-            </div>
-            <div className='w-25'>
-              <div>
-                <TbBulb className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Explore thousands of learning programs, increase your knowledge, 
-                  your potential with certification, and improve your skills.
-                </p>
-              </div>
-            </div>
+            <Feature icon={<BsPersonFillCheck />} text="Spreads has exciting features to connect with each other and share videos, music, audios, and more." />
+            <Feature icon={<FiTrendingUp />} text="Explore trending charts, videos, audios, and reels." />
+            <Feature icon={<TbBulb />} text="Explore thousands of learning programs, increase your knowledge, your potential with certification, and improve your skills." />
           </div>
           <div className='d-flex justify-content-around gap-3 p-4 align-items-center'>
-            <div className='w-25'>
-              <div>
-                <BsSuitcaseLgFill className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Set your job alert on Spreads and grab your job opportunities.
-                </p>
-              </div>
-            </div>
-            <div className='w-25'>
-              <div>
-                <BsBuildings className='text-primary fs-3 m-1'/>
-              </div>
-              <div>
-                <p>
-                  Create a marketplace, stay updated with your product, and promote your brand.
-                </p>
-              </div>
-            </div>
-            <div className='w-25'>
-              <div className='text-primary fs-3 fw-bold m-1'>
-                <h3>BS</h3>
-              </div>
-              <div>
-                <p>
-                  Use Spreads Business Solutions to solve your business problems, hire with us, and find your best solutions.
-                </p>
-              </div>
-            </div>
+            <Feature icon={<BsSuitcaseLgFill />} text="Set your job alert on Spreads and grab your job opportunities." />
+            <Feature icon={<BsBuildings />} text="Create a marketplace, stay updated with your product, and promote your brand." />
+            <Feature icon={<div className='text-primary fs-3 fw-bold m-1'><h3>BS</h3></div>} text="Use Spreads Business Solutions to solve your business problems, hire with us, and find your best solutions." />
           </div>
         </div>
       </div>
 
-      {/* <!-- Modal --> */}
+      {/* Modal */}
       <div className="modal fade" id="forgotPwd" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
@@ -234,5 +177,12 @@ const UserLogin = () => {
     </section>
   );
 };
+
+const Feature = ({ icon, text }) => (
+  <div className='w-25'>
+    <div className='text-center text-primary fs-3 m-1'>{icon}</div>
+    <div><p>{text}</p></div>
+  </div>
+);
 
 export default UserLogin;
