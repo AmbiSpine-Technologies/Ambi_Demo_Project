@@ -8,9 +8,6 @@ import NetworkModal from './Dailog/NetworkModal.jsx';
 import MessageModal from './Dailog/MessageModal/MessageModal.jsx';
 import GroupModalComponent from './Dailog/MessageModal/GroupModal.jsx';
 
-
-
-
 function ChatBox() {
   
   return (
@@ -37,6 +34,7 @@ function ChatBox() {
                 placeholder='Search' />
                 <IoIosSearch className='fs-4 me-2' style={{color:"blue"}}/>
             </form>
+
             <div className='justify-content-around align-items-center d-flex mt-3'>
             <button className='btn btn-sm fw-semibold w-25 me-1'
              data-bs-toggle="modal" data-bs-target="#messageModal"
@@ -44,6 +42,7 @@ function ChatBox() {
             <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <MessageModal/>
             </div>
+            
             <button className='btn fw-semibold btn-sm w-25 me-1'
             data-bs-toggle="modal" data-bs-target="#natworkModal"
             >Network</button>

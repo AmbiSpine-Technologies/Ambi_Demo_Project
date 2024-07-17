@@ -8,6 +8,7 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js"
 import { BrowserRouter } from 'react-router-dom';
 import {Provider} from "react-redux";
 import OuterClickExample from "./ComponentsExa/OuterClickExample.js"; 
+import Camera from './ComponentsExa/Camera';
 
 import store from './store.js';
 
@@ -16,7 +17,7 @@ root.render(
   <React.StrictMode>
   <BrowserRouter>
   <Provider store={store}>
-    <App />
+    <App  />
   </Provider>
   </BrowserRouter>
   </React.StrictMode>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HiCheckBadge } from 'react-icons/hi2';
+import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { NavLink } from 'react-router-dom';
 import './title.css';
 
@@ -21,7 +21,7 @@ const Title = () => {
           alt='Profile'
         />
         <span className='text-black fs-5 fw-semibold'>Dharmendra Kumar</span>
-        <HiCheckBadge className='text-primary fs-5 fw-semibold' />
+        <BsFillCheckCircleFill className='text-primary fs-5 fw-semibold' />
       </div>
       <div className='position-relative'>
         <button

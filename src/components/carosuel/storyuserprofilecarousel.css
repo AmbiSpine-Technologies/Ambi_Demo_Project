@@ -14,13 +14,13 @@
 
 #carouselCard .carousel-control-next {
   float: right;
-  margin-right: -5%;
+  margin-right: 0px;
+  margin-top: 15px;
 }
 
 #carouselCard .carousel-control-prev {
   float: left;
-  margin-top: 12%;
-  margin-left: -10%;
+  margin-top: 15px;
 }
 
 

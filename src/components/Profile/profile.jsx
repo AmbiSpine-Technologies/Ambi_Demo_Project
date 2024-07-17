@@ -3,7 +3,7 @@ import "./profile.css";
 import { Link } from "react-router-dom";
 import { IoIosShareAlt } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
-import { VscVerifiedFilled } from "react-icons/vsc";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 import Carousel from "../carosuel/carousel";
 import ChartComponent from "../../layout/chartcomponent";
 import TextCard from "../../pages/Card/TextCard";
@@ -139,7 +139,7 @@ const Profile = ({ scrollableContentRef }) => {
                   <div className="d-flex justify-content-center flex-column align-items-center ms-2">
                     <div className="d-flex justify-content-between gap-1 w-100">
                       <h4 className="fs-6 fw-light">Aditya Srivastava</h4>
-                      <VscVerifiedFilled className="fs-6 mt-1 text-primary" />
+                      <BsFillCheckCircleFill className="fs-6 mt-1 text-primary" />
                     </div>
                     <span className="bg-light border border-0 p-0 text-center w-100" style={{ fontSize: "0.8rem" }}>
                       @aditya/srivastava
@@ -176,9 +176,9 @@ const Profile = ({ scrollableContentRef }) => {
                        type="button"  data-bs-toggle="modal" data-bs-target="#profileModal"
                       >Edit Profile</button>
                       {/* ---model---- */}
-            <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <Edit_Profile/>
-            </div>
+                    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <Edit_Profile/>
+                    </div>
                     </div>
                   </div>
                 </div>

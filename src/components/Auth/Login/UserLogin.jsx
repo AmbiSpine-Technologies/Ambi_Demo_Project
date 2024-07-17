@@ -6,7 +6,7 @@ import { BsPersonFillCheck, BsBuildings, BsSuitcaseLgFill } from "react-icons/bs
 import { FiTrendingUp } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
 import { NavLink, useNavigate } from "react-router-dom";
-import "./login.css"
+import "./Login.css"
 
 const UserLogin = () => {
   const dispatch = useDispatch();

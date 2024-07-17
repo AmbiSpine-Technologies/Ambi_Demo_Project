@@ -39,7 +39,6 @@ export const register = (formData) => async (dispatch) => {
     try {
         dispatch({ type: REGISTER_REQUEST });
         console.log("Sending registration request with data:", formData);
-
         const config = {
             headers: { "Content-Type": "application/json" } 
         };
@@ -62,7 +61,6 @@ export const register = (formData) => async (dispatch) => {
 export const logout=()=>async (dispatch)=>{
     try{
         await axios.get(`http://localhost:8000/api/user/logout`);
-
         dispatch({type:LOGOUT_SUCCESS})
     }catch(error){
         dispatch({type:LOGOUT_FAIL,payload:error.response.data.message})

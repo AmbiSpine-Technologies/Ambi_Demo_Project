@@ -54,10 +54,10 @@ const HomePageComponent = ({scrollableContentRef}) => {
               </div>
               <p>Stories</p>
             </div>
-            { isStory && <div className=" position-absolute Story-container "  >
+            { isStory && <div className=" position-absolute Story-container ms-3"  >
               <StoryUserCarousel />
               </div>}
-            <div>
+            {/* <div>
               <div className="person person-1">
                 <img src="person.jpeg" alt="" className="img-1" />
                 <img src="person.jpeg" alt="" className="img-2" />
@@ -65,6 +65,7 @@ const HomePageComponent = ({scrollableContentRef}) => {
               </div>
               <p>Audio Room</p>
             </div>
+             */}
             <div>
               <div className="person person-1">
                 <img src="person.jpeg" alt="" className="img-1" />

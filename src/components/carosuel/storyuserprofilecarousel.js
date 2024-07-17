@@ -4,7 +4,7 @@ import "./storyuserprofilecarousel.css"
 export function StoryUserCard() {
   return (
     <div className="">
-      <img src='deposit.jpg' width="70" height="70" className="img-fluid rounded-circle border border-4 border-danger" alt="user story" />
+      <img src='profile.png' width="60" height="60" className="img-fluid rounded-circle border border-4 border-danger" alt="user story" />
     </div>
   );
 }
@@ -34,7 +34,7 @@ const StoryUserCarousel = () => {
 
 
   return (
-    <div className="d-flex justify-content-center align-items-center bg-white rounded-3 storyuserprofilecarousel">
+    <div className="d-flex justify-content-center align-items-center bg-white rounded-3 storyuserprofilecarousel mt-1">
       <div id="carouselCard" className="carousel slide">
         <div className="carousel-inner">
           {chunks.length ? (
@@ -42,7 +42,7 @@ const StoryUserCarousel = () => {
               <div className={`carousel-item ${index === currentSlide ? "active" : ""}`} key={index}>
                 <div className="d-flex">
                   {chunk.map((post, idx) => (
-                    <div key={idx} className="p-2">
+                    <div key={idx} className="px-1">
                       {post}
                     </div>
                   ))}

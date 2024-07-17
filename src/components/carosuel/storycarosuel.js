@@ -9,7 +9,7 @@ export default function StoryCarosuel() {
       <div class="carousel-inner">
     <div class="carousel-item active">
       <div className='d-flex gap-2'>
-      <StoryVideoCard videoSrc="story1.mp4" />
+        <StoryVideoCard videoSrc="story1.mp4" />
         <StoryVideoCard videoSrc="story1.mp4"/>
         <StoryVideoCard videoSrc="story1.mp4"/>
        
@@ -17,7 +17,7 @@ export default function StoryCarosuel() {
     </div>
     <div class="carousel-item">
     <div className='d-flex gap-2'>
-    <StoryVideoCard videoSrc="story1.mp4" />
+        <StoryVideoCard videoSrc="story1.mp4" />
         <StoryVideoCard videoSrc="story1.mp4"/>
         <StoryVideoCard videoSrc="story1.mp4"/>
         

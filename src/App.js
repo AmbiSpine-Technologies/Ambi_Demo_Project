@@ -27,6 +27,7 @@ const ChatHome = lazy(() => import('./components/Message/ChatHome.jsx'));
 const MassageBox = lazy(() => import('./components/Message/conversation/massage/massage.jsx'));
 
 function App() {
+  
   const [user ,setUser]=useState(true) ;
   const [sideBar, setSideBar] = useState(false);
   const scrollableContentRef = useRef(null);
@@ -75,7 +76,7 @@ function App() {
               </ProtectRoute>
             } />
              <Route path='/register' element={<UserRegister />} />
-            <Route element={<ProtectRoute user={user} />}>
+             <Route element={<ProtectRoute user={user} />}>
               <Route path='/profile' element={<Profile scrollableContentRef={scrollableContentRef} />} />
               <Route path='/video' element={<VideoCarsoule />} />
               <Route path='/explore' element={<ExploreComponent scrollableContentRef={scrollableContentRef} />} />
@@ -98,3 +99,5 @@ function App() {
 }
 
 export default App;
+
+

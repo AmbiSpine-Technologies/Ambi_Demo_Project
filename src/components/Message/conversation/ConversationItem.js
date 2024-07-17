@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { VscVerifiedFilled } from "react-icons/vsc";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 import { CiGlobe } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ const ConversationItem = ({ id, name, title, imageUrl, latestText, createAt, isA
             <h6 className='fs-6 fw-normal' style={{ marginBottom: '-2px' }}>{name}</h6>
             <span className='badge rounded-pill bg-dark-subtle text-secondary fw-light p-0'>{title}</span>
           </div>
-          <VscVerifiedFilled className='text-primary fs-6' />
+          <BsFillCheckCircleFill className='text-primary fs-6' />
           <span className='badge rounded-pill bg-body-secondary p-0'>
             <CiGlobe />: {createAt}
           </span>

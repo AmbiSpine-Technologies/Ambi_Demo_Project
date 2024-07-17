@@ -16,8 +16,10 @@ header{
     text-align: center;
     height: 40px;
     background-color:rgb(238, 243, 247);
+    border-radius: 5px;
 }
 .search-box form .search-input{
+    width: 100%;
    background-color: transparent;
     padding: 0.2rem;
     outline: none;

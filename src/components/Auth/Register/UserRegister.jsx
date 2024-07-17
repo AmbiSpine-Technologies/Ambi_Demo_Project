@@ -6,7 +6,7 @@ import { FiTrendingUp } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
 import { clearErrors, register } from '../../../actions/userActions';
 import Banner from './Banner';
-import "../Login/login.css";
+import "../Login/Login.css";
 
 const UserRegister = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoIosSearch } from "react-icons/io";
 import { HiUserGroup } from "react-icons/hi";
-import { MdVerified } from "react-icons/md";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import "./groupModal.css"
 
@@ -29,7 +29,7 @@ const GroupModalComponent = () => {
                 <div key={index} className='d-flex align-items-center border border-1 border-secondary p-1 rounded-5'>
                   <img src='https://wallpapercave.com/wp/wp4454176.jpg' width='30' height='30' className='rounded-circle' alt='avatar' />
                   <h6 className='ms-1  mt-1' style={{fontSize: "14px"}}>
-                    Aditya Shiv <MdVerified className='text-primary' /> <RxCross2 className='' />
+                    Aditya Shiv <BsFillCheckCircleFill className='text-primary' /> <RxCross2 className='' />
                   </h6>
                 </div>
               ))}

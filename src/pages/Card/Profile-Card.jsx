@@ -6,6 +6,7 @@ import { IoMdWifi } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import CreatePost from '../../components/Create-Post/CreatePost';
 import EventCard from '../../components/Event/EventCard';
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 
 const ProfileCard = () => {
@@ -14,9 +15,6 @@ const ProfileCard = () => {
 
   const OpenEventModal = () => SetEventModal(true);
   const CloseEventModal = () => SetEventModal(false);
-  function AddSwitchUser(){
-    SetSwitchUser(!isSwitchUser);
-  }
 
   return (
     <div className='profile-container'>
@@ -34,7 +32,8 @@ const ProfileCard = () => {
             <NavLink to="/profile" className="text-decoration-none">
               <div className="justify-content-center align-items-center d-flex gap-3">
                 <h4 className='fs-6 text-secondary'>Aditya Srivastava</h4>
-                <VscVerifiedFilled className="circle-icons text-primary fs-6" />
+                <BsFillCheckCircleFill className="text-primary fs-6" />
+
               </div>
               </NavLink>  
               <div className='badge text-bg-light'>
@@ -46,11 +45,14 @@ const ProfileCard = () => {
         </div>
         <div className='card-body'>
           <div className='d-flex position-relative justify-content-center align-items-center w-100'>
-            <button className="btn btn-primary btn-sm p-1 w-75 rounded rounded-1 mt-1 mb-1" style={{ height: "25px" }} onClick={AddSwitchUser}>
+            <button className="btn btn-primary btn-sm p-1 w-75 rounded rounded-1 mt-1 mb-1" data-bs-toggle="modal"  data-bs-target="#SwitcheUser" >
               Switch
             </button>
           </div>
-          {isSwitchUser && <div className='position-absolute SwitchUser-show  ms-3'> <SwitchUser /> </div> }
+          <div className="modal fade" id="SwitcheUser" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" style={{marginLeft: "200px"}}>
+          <SwitchUser />
+          </div>
+    
           <div>
             <p className='text-muted' style={{ fontSize: '0.8rem', marginBottom: '-1px' }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus perferendis neque, 
            vitae laudantium temporibus beatae eos quia in natus animi est iusto?</p>
@@ -70,7 +72,7 @@ const ProfileCard = () => {
        <nav className=''>
                 <ul className=''>
                     <li>
-                        <NavLink to="/home" activeClassName="active-link">
+                        <NavLink to="/" activeClassName="active-link">
                             <span className="bi bi-house-door-fill b-icon"></span>Home
                         </NavLink>
                     </li>
@@ -104,22 +106,19 @@ const ProfileCard = () => {
                 </ul>
                 <div className='justify-content-center align-items-center d-flex'>
                 <div className="dropdown">
-                  <button class="btn btn-primary rounded-0" type="button"  data-bs-toggle="modal" data-bs-target="#createModal">
-                  Create Post <i class="bi bi-plus"></i>
+                  <button className="btn btn-primary rounded-0" type="button"  data-bs-toggle="modal" data-bs-target="#createModal">
+                  Create Post <i className="bi bi-plus"></i>
                 </button>
                 </div>
                 </div>
             </nav>
             {/* ---model---- */}
-            <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <CreatePost/>
+            <div className="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <CreatePost />
             </div>
-            <div class="modal fade" id="createEvent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <EventCard/>
+            <div className="modal fade" id="createEvent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <EventCard />
             </div>
-
-            
-
 
        </div>
         </div>
@@ -133,7 +132,9 @@ export default ProfileCard;
 
 function SwitchUser() {
   return (
-    <div className='bg-white p-1'>
+    
+      <div className="modal-dialog modal-dialog-centered text-center ">
+    <div className='bg-white rounded-2 ms-5 p-1 py-4'  style={{width: "300px"}}>
       <div className="justify-content-center align-items-center d-flex gap-2 rounded-2 py-2 px-1">
       <img src='https://live.staticflickr.com/65535/49627006528_4eabfb3cdd_z.jpg' 
       className='img-fluid border rounded-circle' width="50" height="50" />
@@ -145,7 +146,8 @@ function SwitchUser() {
                 <h6 className='fs-6 fw-medium text-black'>Add Another Account</h6>
 
       </div>
-
-    </div>
+      </div>
+      </div>
+  
   );
 }

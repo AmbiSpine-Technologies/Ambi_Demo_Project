@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./matchcard.css";
-import { VscVerifiedFilled } from "react-icons/vsc";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 const ProfileCard = ({ profile, onFollowToggle }) => {
   const [isFollowing, setIsFollowing] = useState(profile.isFollowing);
@@ -13,7 +13,7 @@ const ProfileCard = ({ profile, onFollowToggle }) => {
 
   return (
     <div className="match-card">
-      <div className="avatar">
+      <div className="avatar mt-3">
         <img
           src={profile.image}
           alt="Avatar"
@@ -22,7 +22,7 @@ const ProfileCard = ({ profile, onFollowToggle }) => {
       <div className="titles ms-2">
         <div className="d-flex">
           <h4>{profile.name}</h4>
-          <VscVerifiedFilled className="circle-icons mt-1" />
+          <BsFillCheckCircleFill className="circle-icons mt-1" />
         </div>
         <div className="d-flex align-items-center gap-0">
           <span className="badges">@{profile.username}</span>

@@ -1,10 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./header.css";
+import { MdHome } from "react-icons/md";
+import { FaMicrophone } from "react-icons/fa6";
 import { MdNotificationsActive } from "react-icons/md";
 import { MdSlideshow } from "react-icons/md";
 import { BsSuitcaseLgFill,BsPersonCheckFill } from "react-icons/bs";
 import Notification from "../../components/Notification/notification";
 import {NavLink } from "react-router-dom"; 
+import SearchWithMic from './SearchWithMic';
 
 const Header = ({ toggleOpen }) => {
     const [notify, setNotify] = useState(false);
@@ -39,41 +42,51 @@ const Header = ({ toggleOpen }) => {
                <img src="https://live.staticflickr.com/65535/49627006528_4eabfb3cdd_z.jpg" 
               className="rounded-img" alt=""/>
                 </div>
-                <div className="search-box">
+                {/* <div className="search-box">
                     <form className="relative d-flex position-relative">
                         <span className="search-icon bi bi-search position-absolute"></span>
-                        <input type="text" placeholder="Search.." className="search-input" />
+                        <input type="text" placeholder="Search.." className="search-input " />
+                        <span  className="bi bi-mic-fill position-absolute   text-white bg-primary rounded-circle px-1 mt-2" style={{left: "90%"}} ></span> 
                     </form>
+                </div> */}
+                <div>
+                    <SearchWithMic />
                 </div>
                 <NavLink to="/connected">
                     <img src="Ai.jpg" alt="" className="ms-3" style={{width:"50px",marginTop:"-5px"}} />
-            </NavLink>
+                </NavLink>
             </nav>
           
             <div className="left-icons">
-                <nav className="d-flex gap-3 border-0">
-                <div className="">
+                <nav className="d-flex gap-1 border-0">
+                <div className="mt-2">
+                        <NavLink to="/"
+                        className="d-flex justify-content-center text-decoration-none text-center flex-column align-items-center">
+                            <MdHome className="fs-3"/>
+                            </NavLink>
+                </div>   
+                <div className="mt-2">
                         <NavLink to="/connected"
                         className="d-flex justify-content-center text-decoration-none text-center flex-column align-items-center">
                             <BsPersonCheckFill className="fs-3"/>
-                            <span className="text-secondary  w-100 ">Spreads connecte</span></NavLink>
+                            </NavLink>
                 </div>
-                    <div className=" h-notification" onClick={handleNotification}>
+                    <div className=" mt-2 h-notification" onClick={handleNotification}>
                         <NavLink to="#" 
                         className="d-flex text-decoration-none text-center justify-content-center flex-column align-items-center">
                             <MdNotificationsActive className="fs-3" />
-                            <span  className="text-secondary">Notification</span></NavLink>
+                        </NavLink>
                     </div>
                     {notify && (
                         <div ref={notificationRef} className="notification-page">
                             <Notification />
                         </div>
                     )}
-                    <div className="">
+                    <div className="mt-2">
                         <NavLink to="/job"
                         className="d-flex justify-content-center text-decoration-none text-center flex-column align-items-center">
                             <BsSuitcaseLgFill className="fs-3"/>
-                            <span  className="text-secondary">Jobs</span></NavLink>
+                            </NavLink>
                     </div>
                     {/* <div className="">
                         <NavLink to="/show" 

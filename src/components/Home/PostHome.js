@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { GoHeartFill, GoHeart } from "react-icons/go";
-import { BsChat } from "react-icons/bs";
-import { PiArrowsClockwiseBold } from "react-icons/pi";
 import { BsFillCheckCircleFill, BsPlusCircleDotted } from "react-icons/bs";
 import { BiDotsVerticalRounded } from "react-icons/bi";
-import { IoArrowRedoSharp } from "react-icons/io5";
 import ColonCard from './ColonCard';
 import { MdOutlineThumbUp, MdThumbUp, MdShare } from "react-icons/md";
 import { BiComment } from "react-icons/bi";

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./notification.css";
-import { VscVerifiedFilled } from "react-icons/vsc";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 const data = [
     {
@@ -9,7 +9,6 @@ const data = [
         name: "Adity Sriwastav",
         image: "https://i.pinimg.com/736x/07/c9/f4/07c9f488cb6381d020a8397fe112c2cc.jpg"
     },
-   
     {
         day: "Yesterday",
         content: "Exploring the beautiful beaches of Bali. The sunset here is breathtaking!",
@@ -31,7 +30,6 @@ const data = [
     },
 ];
 
-
 const NotificationCard = ({ name, content, image }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -45,7 +43,7 @@ const NotificationCard = ({ name, content, image }) => {
             <img src={image} alt={name} />
             <p>
                 <span className='title'> {name} </span>
-                <span><VscVerifiedFilled className="circle-icons" /></span>
+                <span><BsFillCheckCircleFill className="circle-icons me-1" /></span>
                 {isExpanded ? content : truncatedContent}
                 {content.length > 50 && (
                     <span onClick={handleToggle} className="toggle-link text-primary">

@@ -30,8 +30,6 @@ const CreatePost = () => {
            <div className="poll">Poll</div>
            <BsEmojiSmileFill style={{color:"goldenrod"}}/>
            <BsFillPersonFill/>
-
-            
           </div>
            </div>
           </div>
@@ -46,3 +44,5 @@ const CreatePost = () => {
 }
 
 export default CreatePost
+
+

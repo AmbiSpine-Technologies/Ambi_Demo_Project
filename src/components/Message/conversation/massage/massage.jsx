@@ -1,5 +1,5 @@
 import React from 'react';
-import { HiCheckBadge } from 'react-icons/hi2';
+import { BsFillCheckCircleFill } from 'react-icons/bs';
 import './MessageList.css'; 
 import NewConversation from '../New-Conversation/New-Conversation'; 
 import Title from '../Tittle/Title';
@@ -67,6 +67,7 @@ const MessageBox = () => {
     <MessageItem message={message} user={user} key={message._id} />
   ));
 
+  
   return (
     <>
       <div className='d-flex flex-column' style={{ height: '90%' }}>
@@ -82,7 +83,7 @@ const MessageBox = () => {
             />
             <div>
               <span className='text-black fs-6 fw-semibold me-1 ms-2'>Dharmendra Kumar</span>
-              <HiCheckBadge className='text-primary fs-6' />
+              <BsFillCheckCircleFill className='text-primary fs-6' />
             </div>
             <p className='w-50 text-center'>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt ipsam fugit magnam veniam eaque minus nemo unde!

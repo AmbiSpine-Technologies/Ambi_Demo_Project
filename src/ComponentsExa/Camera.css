@@ -1,0 +1,15 @@
+.camera-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #f0f0f0;
+        }
+        
+        .camera-feed {
+          width: 100%;
+          max-width: 800px;
+          border: 5px solid #ccc;
+          border-radius: 10px;
+        }
+        

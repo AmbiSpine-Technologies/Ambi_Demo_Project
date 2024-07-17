@@ -52,9 +52,10 @@ const NetworkModal = () => {
             </div>
           </div>
         </div>
+
         {isAddUserModalOpen && (
         <div className="modal fade show d-block" tabIndex="-1" id='addModal'>
-          
+        
             <AddUserModal onClose={handleCloseAddUserModal} onInvite={handleInviteUser} />
           
         </div>

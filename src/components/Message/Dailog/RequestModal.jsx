@@ -33,7 +33,7 @@ const RequestModal = () => {
           </div>
         </div>
         <div className="text-center border-top pt-2">
-          <button type="button" className="btn btn-link">Clear All</button>
+          <button type="button" className="btn  btn-link">Clear All</button>
         </div>
       </div>
     </div>
