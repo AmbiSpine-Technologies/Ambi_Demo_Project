@@ -52,9 +52,9 @@ const ActivitySection = ({ activities }) => {
        
       </div>
       
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap" >
         {filterActivities().map((activity, index) => (
-          <div className=" mt-1" key={index}>
+          <div className=" mt-1" key={index} >
             <Card image={activity.image} title={activity.title} description={activity.description} />
           </div>
         ))}

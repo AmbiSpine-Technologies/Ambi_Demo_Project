@@ -1,5 +1,5 @@
 .t-container .card{
-    width: 300px;
+    width: 290px;
 }
 
 .text-containers{
@@ -20,7 +20,7 @@
 .text-content{
     position: absolute;
     margin-top: 70px;
-    margin-left: 220px;
+    margin-left: 210px;
 }
 input::placeholder{
     font-size: 15px;

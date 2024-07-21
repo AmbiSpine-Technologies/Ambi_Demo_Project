@@ -37,11 +37,15 @@ const Header = ({ toggleOpen }) => {
 
     return (
         <header className="d-flex justify-content-between p-2 mt-2">
-            <nav className="d-flex">
-                <div className="logo ms-4 me-3" onClick={toggleOpen}>
+            <nav className="d-flex navbar navbar-expand-lg ">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <div className="logo ms-4 me-3" onClick={toggleOpen}>
                <img src="https://live.staticflickr.com/65535/49627006528_4eabfb3cdd_z.jpg" 
               className="rounded-img" alt=""/>
                 </div>
+    </button>
+
+               
                 {/* <div className="search-box">
                     <form className="relative d-flex position-relative">
                         <span className="search-icon bi bi-search position-absolute"></span>
@@ -58,16 +62,16 @@ const Header = ({ toggleOpen }) => {
             </nav>
           
             <div className="left-icons">
-                <nav className="d-flex gap-1 border-0">
-                <div className="mt-2">
+                <nav className="d-flex gap-1 navbar-collapse border-0" collapse  id="navbarNav">
+                <div className="mt-2 navbar-nav">
                         <NavLink to="/"
-                        className="d-flex justify-content-center text-decoration-none text-center flex-column align-items-center">
+                        className="d-flex nav-item justify-content-center text-decoration-none text-center flex-column align-items-center">
                             <MdHome className="fs-3"/>
                             </NavLink>
                 </div>   
                 <div className="mt-2">
                         <NavLink to="/connected"
-                        className="d-flex justify-content-center text-decoration-none text-center flex-column align-items-center">
+                        className="d-flex nav-item justify-content-center text-decoration-none text-center flex-column align-items-center">
                             <BsPersonCheckFill className="fs-3"/>
                             </NavLink>
                 </div>
@@ -88,12 +92,6 @@ const Header = ({ toggleOpen }) => {
                             <BsSuitcaseLgFill className="fs-3"/>
                             </NavLink>
                     </div>
-                    {/* <div className="">
-                        <NavLink to="/show" 
-                        className="d-flex justify-content-center text-decoration-none text-center flex-column align-items-center "> 
-                             <img src="video_1.png" alt="" className="ms-3" style={{width:"30px",height:"30px",marginTop:"-5px"}} />
-                            <span  className="text-black fs-6 fw-bold">Show</span></NavLink>
-                    </div> */}
                 </nav>
             </div>
         </header>
@@ -101,3 +99,4 @@ const Header = ({ toggleOpen }) => {
 };
 
 export default Header;
+

@@ -14,7 +14,7 @@ function ChatBox() {
     <div className="chat-containers-me ">
       <div className="chat-box">
        <div className='justify-content-between align-items-center d-flex p-2'>
-       <div>
+       <div >
        <a href="/" className=' btn btn-light p-1 me-4 rounded-circle'>
         <i class="bi bi-arrow-left"></i>
         </a>
@@ -24,10 +24,10 @@ function ChatBox() {
        <i class="bi bi-gear-fill"></i>
        </button>
        </div>
-        <div className="messages">
+        <div className="messages ">
             <form 
             className='bg-body-secondary border-dark rounded justify-content-between align-items-center d-flex
-            rounded-1 p-2'>
+            rounded-1 p-2 '>
                 <input type="text"
                 style={{ outline: "none" }}
                 className='w-100 border-0 bg-transparent'

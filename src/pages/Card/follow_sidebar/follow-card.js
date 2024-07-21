@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const ProfileCards=()=>{
     return(
             <div className="follow-card">
-            <div className="avatar">
+            <div className="avatar mt-3">
         <img
             src="https://live.staticflickr.com/65535/49627006528_4eabfb3cdd_z.jpg"
             class=""

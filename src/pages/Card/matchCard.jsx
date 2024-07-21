@@ -53,9 +53,9 @@ const MatchCard = ({ title, profiles = [], onFollowToggle }) => {
   const previewCard = 2;
 
   return (
-    <div className='match-container'>
-      <div className='card p-1 border-0'>
-        <h6 className='card-title'>{title}</h6>
+    <div className='match-container card'>
+      <div className=' p-2 border-0'>
+        <h6 className='card-title pt-2 ps-2'>{title}</h6>
         {Expand ? profiles.map(profile => (
           <ProfileCard key={profile.id} profile={profile} onFollowToggle={onFollowToggle} />
         )) : profiles.slice(0, previewCard).map(profile => (

@@ -10,11 +10,7 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 
 
 const ProfileCard = () => {
-  const [isEventModal, SetEventModal] = useState(false);
-  const [isSwitchUser, SetSwitchUser] = useState(false);
 
-  const OpenEventModal = () => SetEventModal(true);
-  const CloseEventModal = () => SetEventModal(false);
 
   return (
     <div className='profile-container'>
@@ -53,10 +49,10 @@ const ProfileCard = () => {
           <SwitchUser />
           </div>
     
-          <div>
+          <div className='mt-2'>
             <p className='text-muted' style={{ fontSize: '0.8rem', marginBottom: '-1px' }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus perferendis neque, 
            vitae laudantium temporibus beatae eos quia in natus animi est iusto?</p>
-            <div className='badge text-bg-light'>
+            <div className='badge text-bg-light my-1'>
               <span className='text-muted' style={{ fontSize: '0.6rem' }}>Enterpernure</span>
             </div>
           </div>
@@ -93,7 +89,7 @@ const ProfileCard = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="#" activeClassName="active-link">
+                        <NavLink to="/spread-live" activeClassName="active-link">
                             <span className="bi bi-person-video2 b-icon"></span>Spread Live
                         </NavLink>
                     </li>
@@ -106,7 +102,7 @@ const ProfileCard = () => {
                 </ul>
                 <div className='justify-content-center align-items-center d-flex'>
                 <div className="dropdown">
-                  <button className="btn btn-primary rounded-0" type="button"  data-bs-toggle="modal" data-bs-target="#createModal">
+                  <button className="btn btn-primary rounded-2" type="button"  data-bs-toggle="modal" data-bs-target="#createModal">
                   Create Post <i className="bi bi-plus"></i>
                 </button>
                 </div>
@@ -139,7 +135,7 @@ function SwitchUser() {
       <img src='https://live.staticflickr.com/65535/49627006528_4eabfb3cdd_z.jpg' 
       className='img-fluid border rounded-circle' width="50" height="50" />
                 <h5 className='fs-6 text-secondary'>Aditya Srivastava</h5>
-                <VscVerifiedFilled className="circle-icons text-primary fs-5" />
+                <BsFillCheckCircleFill className="circle-icons text-primary fs-5" />
       </div>
       <div className="justify-content-center align-items-center d-flex gap-1 mt-3">
                 <IoIosAddCircleOutline className=" fw-light text-black fs-1" />

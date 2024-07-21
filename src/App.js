@@ -25,7 +25,7 @@ const Followers = lazy(() => import('./components/Community/followers'));
 const Following = lazy(() => import('./components/Community/following'));
 const ChatHome = lazy(() => import('./components/Message/ChatHome.jsx'));
 const MassageBox = lazy(() => import('./components/Message/conversation/massage/massage.jsx'));
-
+const LiveSpread = lazy(()=> import('./components/Audiolive/LiveSpread.js'))
 function App() {
   
   const [user ,setUser]=useState(true) ;
@@ -62,6 +62,7 @@ function App() {
   return (
     <div className="App">
       <Header toggleOpen={toggleSideBar} />
+      
       <div className={`tab-group ${sideBar ? 'show' : ''}`}>
         <Sidebar toggleClose={toggleSideBar} />
       </div>
@@ -87,6 +88,7 @@ function App() {
               <Route path='/event' element={<EventCard />} />
               <Route path='/job' element={<JobComponent />} />
               <Route path='/audio' element={<Audio />} />
+              <Route path='/spread-live' element={<LiveSpread />} />
               <Route path='/video-slide' element={<StoryCarosuel />} />
               <Route path='/followers' element={<Followers />} />
               <Route path="/following" element={<Following />} />

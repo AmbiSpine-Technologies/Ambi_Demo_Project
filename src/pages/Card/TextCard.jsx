@@ -5,11 +5,12 @@ import { MdBarChart } from "react-icons/md";
 import { IoLocationSharp } from "react-icons/io5";
 import { MdOutlineEventRepeat } from "react-icons/md";
 import "./text.css"
+
 const TextCard = () => {
   return (
    <div className='t-container'>
      <div className='card m-2' style={{height:'300px'}}>
-        <div className='text-containers'>
+        <div className='text-containers '>
            <input type="text" placeholder="What's in your mind ?" />
         </div>
         <div className='text-content'>
