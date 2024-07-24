@@ -23,8 +23,8 @@
 
 .audio-container{
     margin-top: 10px;
-    width: 100%;
-    
+    width: 1200px;
+    margin-left: -200px;
     height: 85vh;
     .row{
       height: 100%;

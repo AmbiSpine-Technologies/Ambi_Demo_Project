@@ -68,7 +68,7 @@ function App() {
       </div>
 
       <section className='section-container'>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Loading />} >
           <Routes>
             <Route path='/' element={<HomePageComponent scrollableContentRef={scrollableContentRef} />} />
             <Route path='/login' element={
